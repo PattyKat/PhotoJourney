@@ -1,0 +1,40 @@
+{
+  "name": "photojourney",
+  "version": "1.0.0",
+  "description": "'An app for a private person to document a personal journey through photos'",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon Server/index.js",
+    "build": "webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PattyKat/PhotoJourney.git"
+  },
+  "author": "Patrice Cottman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PattyKat/PhotoJourney/issues"
+  },
+  "homepage": "https://github.com/PattyKat/PhotoJourney#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^6.0.0",
+    "express": "^4.17.1",
+    "node": "^15.7.0",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "webpack": "^5.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "webpack-cli": "^4.4.0"
+  }
+}
