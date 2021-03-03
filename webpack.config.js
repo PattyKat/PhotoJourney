@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zlib = require('zlib');
