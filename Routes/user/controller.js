@@ -14,9 +14,10 @@ module.exports = {
         }
         if (isMatch) {
           const token = jwt.sign({ id: user._id }, process.env.SECRET, { expiresIn: 86400 });
-          res.status(200).send({ msg: 'Login Successful', token });
+          //res.status(200).send({ msg: 'Login Successful', token });
+          res.status(200).send(token);
         } else {
-          res.send({ msg: 'password did not match' });
+          res.status(404).send('password did not match');
         }
       });
     });
