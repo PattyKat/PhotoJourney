@@ -24,7 +24,6 @@ app.use('/', (req, res, next) => {
 });
 
 app.use('/user', userRouter);
-//put CRUD here
 
 app.use('/', expressStaticGzip('./Client/public', {
   enableBrotli: true,

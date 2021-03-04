@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema({
+const db = mongoose.createConnection('mongodb://localhost:27017/photoj',
+  { useNewUrlParser: true });
+
+const userSchema = new mongoose.Schema({
   firstname: {
     type: String,
     required: true,
@@ -23,6 +26,6 @@ const userSchema = mongoose.Schema({
   },
 });
 
-const User = mongoose.model('user', userSchema);
+const User = db.model('User', userSchema);
 
 module.exports = User;
