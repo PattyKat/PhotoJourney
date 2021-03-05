@@ -62,8 +62,14 @@ class App extends React.Component {
       }],
     };
     axios.post('/user/register', newUser)
-      .then(() => console.log('registration successful'))
-      .catch((err) => console.log('sorry, problem with registration', err));
+      .then(() => {
+        alert('registration successful, please login');
+        console.log('registration successful');
+      })
+      .catch((err) => {
+        alert('registration failed: Email already in use.');
+        console.log('sorry, problem with registration', err);
+      });
   }
 
   handleMenuModal() {

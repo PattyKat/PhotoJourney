@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 html, body {
   height: 100%;
   margin: 0;
@@ -11,6 +13,7 @@ html, body {
 #title {
   position: absolute;
   z-index: 2;
+  font-family: 'Pacifico', cursive;
   font-size: 50px;
   margin-top: 80px;
   margin-left: 42%;
@@ -137,6 +140,7 @@ html, body {
   float: left;
   left: 0px;
   font-size: 50px;
+  font-family: 'Pacifico', cursive;
 }
 .iconContainer {
   float: right;
@@ -209,6 +213,7 @@ html, body {
 }
 
 #menuheader {
+  font-family: 'Pacifico', cursive;
   font-weight: bold;
   height: 20px;
   margin-bottom: 20px;
