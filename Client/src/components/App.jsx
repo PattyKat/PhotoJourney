@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable no-alert */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
@@ -59,14 +60,18 @@ class App extends React.Component {
   render() {
     const { login, userPage, userData } = this.state;
     return (
-      <div>
-        { login && (
-        <div>
-          <Login loginHandler={this.loginHandler} />
-          <Register registerHandler={this.registerHandler} />
+      <div id="uberContainer">
+        <div id="title"><span>PhotoJourney</span></div>
+        <div id={login === true ? 'appContainerLogin' : 'appContainerUser'}>
+          { login && (
+            <div id="flexLoginContainer">
+              <Login loginHandler={this.loginHandler} />
+              <button id="loginScreenButton" type="button">OR</button>
+              <Register registerHandler={this.registerHandler} />
+            </div>
+          ) }
+          { userPage && <UserPage user={userData} /> }
         </div>
-        ) }
-        { userPage && <UserPage user={userData} /> }
       </div>
     );
   }

@@ -1,0 +1,69 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+#title {
+  position: absolute;
+  z-index: 2;
+  font-size: 50px;
+  margin-top: 80px;
+  margin-left: 40%;
+}
+
+#appContainerLogin {
+  height: 100%;
+  margin: 0;
+  background-image: url(mohamed-nohassi-odxB5oIG_iA-unsplash.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#appContainerUser {
+  height: 100%;
+  margin: 0;
+  background-image: url(jae-bano-Xbf_4e7YDII-unsplash.jpg);
+  background-size: cover;
+}
+#uberContainer {
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+#flexLoginContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: auto;
+  width: 75%;
+
+}
+
+.login {
+  background-color: rgb(92, 68, 171, 0.3);
+  border: 1px solid #67727e;
+  box-shadow: 0 1px 3px rgb(0 0 0 /4%);
+  height: 300px;
+  width: 250px;
+  padding: 10px;
+}
+
+#loginScreenButton {
+  height: 50px;
+  width: 50px;
+  margin-top: 150px;
+  background-color: azure;
+  border: 1px solid #ccd0d4;
+  box-shadow: 0 1px 3px rgb(0 0 0 /4%);
+  padding: 10px;
+}
