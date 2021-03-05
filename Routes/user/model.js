@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const db = mongoose.createConnection('mongodb://localhost:27017/photoj',
   { useNewUrlParser: true });
@@ -26,16 +25,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: Date.now(),
   },
+  pictures: Array,
 });
 
-userSchema.methods.comparePassword = (candidatePassword, cb) => {
-  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-    if (err) {
-      return cb(err);
-    }
-    return cb(null, isMatch);
-  });
-};
 const User = db.model('User', userSchema);
 
 module.exports = User;

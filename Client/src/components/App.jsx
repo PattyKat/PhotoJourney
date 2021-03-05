@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-console */
 import React from 'react';
@@ -23,7 +24,7 @@ class App extends React.Component {
     console.log(loginInfo);
     axios.post('user/login', loginInfo)
       .then((token) => console.log('login successful', token))
-      .catch((err) => alert('login failed, please try again'));
+      .catch(() => alert('login failed, please try again'));
   }
 
   registerHandler({
