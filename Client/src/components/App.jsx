@@ -5,12 +5,16 @@ import React from 'react';
 import axios from 'axios';
 import Login from './Login';
 import Register from './Register';
+import UserPage from './UserPage';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      token: '',
+      userData: {},
       login: true,
+      userPage: false,
     };
     this.loginHandler = this.loginHandler.bind(this);
     this.registerHandler = this.registerHandler.bind(this);
@@ -23,7 +27,13 @@ class App extends React.Component {
   loginHandler(loginInfo) {
     console.log(loginInfo);
     axios.post('user/login', loginInfo)
-      .then((token) => console.log('login successful', token))
+      .then((data) => {
+        console.log('login successful');
+        this.setState({ token: data.data.token });
+        this.setState({ userData: data.data.user });
+        this.setState({ login: false });
+        this.setState({ userPage: true });
+      })
       .catch(() => alert('login failed, please try again'));
   }
 
@@ -35,6 +45,10 @@ class App extends React.Component {
       lastname,
       email: registerEmail,
       password: registerPassword,
+      pictures: [{
+        url: 'https://source.unsplash.com/400x400/?corgi',
+        description: 'Perferendis et dignissimos dicta sint ea nam accusamus blanditiis. Eos sit omnis odit. At expedita fugit alias. Et iste fuga odit omnis ea. Aliquam id placeat quisquam et quis labore. Nesciunt et dignissimos eius optio hic.',
+      }],
     };
     console.log(newUser);
     axios.post('/user/register', newUser)
@@ -43,7 +57,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { login } = this.state;
+    const { login, userPage, userData } = this.state;
     return (
       <div>
         { login && (
@@ -52,6 +66,7 @@ class App extends React.Component {
           <Register registerHandler={this.registerHandler} />
         </div>
         ) }
+        { userPage && <UserPage user={userData} /> }
       </div>
     );
   }

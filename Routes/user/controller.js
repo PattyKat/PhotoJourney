@@ -14,8 +14,7 @@ module.exports = {
         }
         if (isMatch) {
           const token = jwt.sign({ id: user._id }, process.env.SECRET, { expiresIn: 86400 });
-          //res.status(200).send({ msg: 'Login Successful', token });
-          res.status(200).send(token);
+          res.status(200).send({ token, user });
         } else {
           res.status(404).send('password did not match');
         }
@@ -24,6 +23,7 @@ module.exports = {
   },
   register: (req, res) => {
     const person = req.body;
+    console.log(person);
     const { password } = person;
     const saltRounds = 10;
     bcrypt.hash(password, saltRounds, (err, hash) => {
