@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable no-alert */
 /* eslint-disable class-methods-use-this */
@@ -7,6 +9,7 @@ import axios from 'axios';
 import Login from './Login';
 import Register from './Register';
 import UserPage from './UserPage';
+import MenuModal from './MenuModal';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +19,11 @@ class App extends React.Component {
       userData: {},
       login: true,
       userPage: false,
+      menu: false,
     };
     this.loginHandler = this.loginHandler.bind(this);
     this.registerHandler = this.registerHandler.bind(this);
+    this.handleMenuModal = this.handleMenuModal.bind(this);
   }
 
   componentDidMount() {
@@ -55,11 +60,26 @@ class App extends React.Component {
       .catch((err) => console.log('sorry, problem with registration', err));
   }
 
+  handleMenuModal() {
+    const { menu } = this.state;
+    this.setState({ menu: !menu });
+  }
+
   render() {
-    const { login, userPage, userData } = this.state;
+    const { login, userPage, userData, menu } = this.state;
     return (
       <div id="uberContainer">
         {!userPage && <div id="title"><span>PhotoJourney</span></div>}
+        {userPage
+        && (
+        <div id="userpage-header">
+          <div className="hello">{`Hello, ${userData.firstname}!`}</div>
+          <div className="iconContainer">
+            <div className="userAvatar" />
+            <div className="menuIcon" onClick={() => this.handleMenuModal()} />
+          </div>
+        </div>
+        )}
         <div id={login === true ? 'appContainerLogin' : 'appContainerUser'}>
           { login && (
             <div id="flexLoginContainer">
@@ -69,6 +89,14 @@ class App extends React.Component {
             </div>
           ) }
           { userPage && <UserPage user={userData} /> }
+          { menu && <MenuModal handleMenuModal={this.handleMenuModal} />}
+        </div>
+        <div id="iconAttribute">
+          Icons made by
+          <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a>
+          {' '}
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
         </div>
       </div>
     );

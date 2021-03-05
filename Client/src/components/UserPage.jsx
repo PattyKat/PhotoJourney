@@ -9,14 +9,11 @@ const UserPage = ({ user }) => {
   const listItems = picArr.map(({ url, description }, idx) => (
     <li className="feed" key={idx}>
       <img src={url} data-value={idx} className="feed-image" alt="feelings" />
-      <span className="imagedesc">{description}</span>
+      <div className="imagedesc">{description}</div>
     </li>
   ));
   return (
     <div id="userpage">
-      <div id="userpage-header">
-        <span>{`Hello, ${firstname}!`}</span>
-      </div>
       <div id="picture-display">
         <ul>{listItems}</ul>
       </div>
