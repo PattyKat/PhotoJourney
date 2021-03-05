@@ -46,7 +46,7 @@ module.exports = {
     }),
   ],
   devtool: 'inline-source-map',
-  mode: 'development',
+  mode: 'production',
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },

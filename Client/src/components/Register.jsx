@@ -28,27 +28,15 @@ const Register = ({ registerHandler }) => {
   };
 
   return (
-    <div className="login">
+    <div className="loginReg">
       <h2>REGISTER HERE</h2>
-      <label htmlFor="firstname">
-        First Name:
-        <input type="text" id="firstname" value={state.firstname} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="text" id="firstname" value={state.firstname} placeholder="first name" onChange={(event) => handleChange(event)} />
       <br />
-      <label htmlFor="lastname">
-        Last Name:
-        <input type="text" id="lastname" value={state.lastname} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="text" id="lastname" value={state.lastname} placeholder="last name" onChange={(event) => handleChange(event)} />
       <br />
-      <label htmlFor="registerEmail">
-        Email:
-        <input type="email" id="registerEmail" value={state.registerEmail} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="email" id="registerEmail" value={state.registerEmail} placeholder="email@gmail.com" onChange={(event) => handleChange(event)} />
       <br />
-      <label htmlFor="registerPassword">
-        Password:
-        <input type="text" id="registerPassword" value={state.registerPassword} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="password" id="registerPassword" value={state.registerPassword} placeholder="secret password" onChange={(event) => handleChange(event)} />
       <br />
       <button type="submit" onClick={() => submitHandler()}>REGISTER</button>
     </div>

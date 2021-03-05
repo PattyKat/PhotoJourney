@@ -26,15 +26,9 @@ const Login = ({ loginHandler }) => {
   return (
     <div className="login">
       <h2>WELCOME BACK</h2>
-      <label htmlFor="email">
-        Email:
-        <input type="email" id="email" value={state.email} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="email" id="email" value={state.email} placeholder="Email@gmail.com" onChange={(event) => handleChange(event)} />
       <br />
-      <label htmlFor="password">
-        Password:
-        <input type="text" id="password" value={state.password} onChange={(event) => handleChange(event)} />
-      </label>
+      <input type="password" id="password" value={state.password} placeholder="secret password" onChange={(event) => handleChange(event)} />
       <br />
       <button type="submit" onClick={() => submitForm()}>LOGIN</button>
     </div>

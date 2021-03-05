@@ -13,7 +13,7 @@ html, body {
   z-index: 2;
   font-size: 50px;
   margin-top: 80px;
-  margin-left: 40%;
+  margin-left: 42%;
 }
 
 #appContainerLogin {
@@ -58,12 +58,37 @@ html, body {
   padding: 10px;
 }
 
+.login input {
+  margin: 15px;
+}
+
+.login button {
+  margin: 15px;
+}
+
+.loginReg {
+  background-color: rgb(92, 68, 171, 0.3);
+  border: 1px solid #67727e;
+  box-shadow: 0 1px 3px rgb(0 0 0 /4%);
+  height: 340px;
+  width: 250px;
+  padding: 10px;
+}
+
+.loginReg input {
+  margin: 15px;
+}
+
+.loginReg button {
+  margin: 15px;
+}
+
 #loginScreenButton {
   height: 50px;
   width: 50px;
   margin-top: 150px;
-  background-color: azure;
-  border: 1px solid #ccd0d4;
+  background-color: rgb(92, 68, 171, 1);
+  border: 1px solid #67727e;
   box-shadow: 0 1px 3px rgb(0 0 0 /4%);
   padding: 10px;
 }

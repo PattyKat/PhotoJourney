@@ -29,7 +29,6 @@ class App extends React.Component {
     console.log(loginInfo);
     axios.post('user/login', loginInfo)
       .then((data) => {
-        console.log('login successful');
         this.setState({ token: data.data.token });
         this.setState({ userData: data.data.user });
         this.setState({ login: false });
@@ -51,7 +50,6 @@ class App extends React.Component {
         description: 'Perferendis et dignissimos dicta sint ea nam accusamus blanditiis. Eos sit omnis odit. At expedita fugit alias. Et iste fuga odit omnis ea. Aliquam id placeat quisquam et quis labore. Nesciunt et dignissimos eius optio hic.',
       }],
     };
-    console.log(newUser);
     axios.post('/user/register', newUser)
       .then(() => console.log('registration successful'))
       .catch((err) => console.log('sorry, problem with registration', err));
@@ -61,7 +59,7 @@ class App extends React.Component {
     const { login, userPage, userData } = this.state;
     return (
       <div id="uberContainer">
-        <div id="title"><span>PhotoJourney</span></div>
+        {!userPage && <div id="title"><span>PhotoJourney</span></div>}
         <div id={login === true ? 'appContainerLogin' : 'appContainerUser'}>
           { login && (
             <div id="flexLoginContainer">
