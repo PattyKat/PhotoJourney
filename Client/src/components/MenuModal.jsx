@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const MenuModal = ({ handleMenuModal, logout }) => (
+const MenuModal = ({ handleMenuModal, logout, dropzone }) => (
   <div id="menuModalContainer">
     <div id="menuModalHeader">
       <div id="menuheader">Menu</div>
@@ -15,7 +17,7 @@ const MenuModal = ({ handleMenuModal, logout }) => (
         <li>
           <div>Role: Mentor</div>
           <div>Name: Micheal</div>
-          <div id="phoneimg" />
+          <div id="phoneimg" onClick="window.open('tel:4006824200');" />
           <button type="button" style={{ backgroundColor: 'lightgreen' }}>remove</button>
         </li>
         <li>
@@ -27,7 +29,7 @@ const MenuModal = ({ handleMenuModal, logout }) => (
       </ol>
     </div>
     <div>
-      <button type="button" id="uploadPhotoActivate" style={{ backgroundColor: 'lightblue' }}>Upload New Photo</button>
+      <button type="button" id="uploadPhotoActivate" style={{ backgroundColor: 'lightblue' }} onClick={() => dropzone()}>Upload New Photo</button>
     </div>
     <div>
       <button type="button" id="logout" style={{ backgroundColor: 'lightred' }} onClick={() => logout()}>LOGOUT</button>
@@ -38,5 +40,6 @@ const MenuModal = ({ handleMenuModal, logout }) => (
 MenuModal.propTypes = {
   handleMenuModal: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
+  dropzone: PropTypes.func.isRequired,
 };
 export default MenuModal;

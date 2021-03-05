@@ -234,3 +234,34 @@ html, body {
  background-color: red;
  margin-top: 25px;
 }
+
+#dropContainer {
+  background-color: rgba(125, 122, 134, 0.3);
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+#textarea {
+  height: 150px;
+  width: 600px;
+  padding: 20px;
+  background-color: rgba(125, 122, 134, 0.6);
+  margin:25px;
+  color: black;
+  font-weight: bold;
+  text-align: start;
+}
+
+#dropContainerMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: transparent;
+}
+
+#dropContainerMain button {
+  width: 208px;
+  margin-left: 30%;
+}

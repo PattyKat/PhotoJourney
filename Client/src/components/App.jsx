@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-unused-state */
@@ -10,6 +11,7 @@ import Login from './Login';
 import Register from './Register';
 import UserPage from './UserPage';
 import MenuModal from './MenuModal';
+import MyDropzone from './MyDropzone';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,11 +22,14 @@ class App extends React.Component {
       login: true,
       userPage: false,
       menu: false,
+      dropzone: false,
     };
     this.loginHandler = this.loginHandler.bind(this);
     this.registerHandler = this.registerHandler.bind(this);
     this.handleMenuModal = this.handleMenuModal.bind(this);
     this.logout = this.logout.bind(this);
+    this.dropzone = this.dropzone.bind(this);
+    this.onPhotoUpload = this.onPhotoUpload.bind(this);
   }
 
   componentDidMount() {
@@ -73,8 +78,23 @@ class App extends React.Component {
     this.setState({ login: !login });
   }
 
+  dropzone() {
+    const { userPage, menu, dropzone } = this.state;
+    this.setState({ menu: !menu });
+    this.setState({ userPage: !userPage });
+    this.setState({ dropzone: !dropzone });
+  }
+
+  onPhotoUpload() {
+    const { userPage, dropzone } = this.state;
+    this.setState({ userPage: !userPage });
+    this.setState({ dropzone: !dropzone });
+  }
+
   render() {
-    const { login, userPage, userData, menu } = this.state;
+    const {
+      login, userPage, userData, menu, dropzone,
+    } = this.state;
     return (
       <div id="uberContainer">
         {!userPage && <div id="title"><span>PhotoJourney</span></div>}
@@ -97,14 +117,27 @@ class App extends React.Component {
             </div>
           ) }
           { userPage && <UserPage user={userData} /> }
-          { menu && <MenuModal handleMenuModal={this.handleMenuModal} logout={this.logout} />}
-        </div>
-        <div id="iconAttribute">
-          Icons made by
-          <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a>
-          {' '}
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+          { menu && (
+          <MenuModal
+            handleMenuModal={this.handleMenuModal}
+            logout={this.logout}
+            dropzone={this.dropzone}
+          />
+          )}
+          { dropzone && (
+            <div id="dropContainerMain">
+              <MyDropzone />
+              <input type="textarea" placeholder="Tell me about this photo" id="textarea" />
+              <button type="submit" style={{ backgroundColor: 'lightblue' }} onClick={() => this.onPhotoUpload()}>UPLOAD</button>
+            </div>
+          )}
+          <div id="iconAttribute">
+            Icons made by
+            <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a>
+            {' '}
+            from
+            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+          </div>
         </div>
       </div>
     );

@@ -11,8 +11,8 @@ const arrayBuilder = () => {
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
       email: faker.internet.email(),
-      password: '$2b$10$3UtxEDLP/9/q5OaOPTbdDe/Hfjjx8taZqrTNC3Q2O/Atl5jPNRDy6',
-      pictures: [{ url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }],
+      password: '$2b$10$e.No4FZ3EpkD1yXMugG8JuZWUi/1Iz5kByocfspqbLYvZS2.sSKVy',
+      pictures: [{ url: 'https://source.unsplash.com/400x400/?cat', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?puppy', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?corgi', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?sloth', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?pug', description: faker.lorem.paragraph() }, { url: 'https://source.unsplash.com/400x400/?kitten', description: faker.lorem.paragraph() }],
     });
     i += 1;
   }
