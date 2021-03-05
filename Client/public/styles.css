@@ -183,10 +183,54 @@ html, body {
 }
 
 #menuModalContainer {
+  display: block;
+  position: absolute;
+  right:0px;
   background-color: rgb(92, 68, 171, 0.3);
   border: 1px solid #67727e;
   box-shadow: 0 1px 3px rgb(0 0 0 /4%);
   height: 340px;
   width: 250px;
   padding: 10px;
+}
+
+#phoneimg {
+  background-image: url(phone-call.png);
+  background-size: contain;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 10px;
+}
+
+#allies li {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#menuheader {
+  font-weight: bold;
+  height: 20px;
+  margin-bottom: 20px;
+  float:left;
+}
+
+#menuModalHeader {
+  display: block;
+  margin-bottom: 20px;
+}
+#menuModalHeader button {
+  float: right;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+}
+
+#allyContainer {
+  margin-top: 20px;
+}
+
+#logout {
+ background-color: red;
+ margin-top: 25px;
 }

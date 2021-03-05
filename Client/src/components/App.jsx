@@ -24,6 +24,7 @@ class App extends React.Component {
     this.loginHandler = this.loginHandler.bind(this);
     this.registerHandler = this.registerHandler.bind(this);
     this.handleMenuModal = this.handleMenuModal.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +66,13 @@ class App extends React.Component {
     this.setState({ menu: !menu });
   }
 
+  logout() {
+    const { userPage, menu, login } = this.state;
+    this.setState({ menu: !menu });
+    this.setState({ userPage: !userPage });
+    this.setState({ login: !login });
+  }
+
   render() {
     const { login, userPage, userData, menu } = this.state;
     return (
@@ -89,7 +97,7 @@ class App extends React.Component {
             </div>
           ) }
           { userPage && <UserPage user={userData} /> }
-          { menu && <MenuModal handleMenuModal={this.handleMenuModal} />}
+          { menu && <MenuModal handleMenuModal={this.handleMenuModal} logout={this.logout} />}
         </div>
         <div id="iconAttribute">
           Icons made by
