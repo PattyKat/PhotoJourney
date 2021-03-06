@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import PropTypes from 'prop-types';
 
-function MyDropzone() {
+function MyDropzone({ onPhotoUpload }) {
   const onDrop = useCallback((acceptedFiles) => {
     console.log(acceptedFiles);
+    onPhotoUpload(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -19,5 +21,9 @@ function MyDropzone() {
     </div>
   );
 }
+
+MyDropzone.propTypes = {
+  onPhotoUpload: PropTypes.func.isRequired,
+};
 
 export default MyDropzone;

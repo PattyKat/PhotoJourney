@@ -91,7 +91,9 @@ class App extends React.Component {
     this.setState({ dropzone: !dropzone });
   }
 
-  onPhotoUpload() {
+  onPhotoUpload(photo) {
+    console.log(photo);
+    //add handling for photo and text in here
     const { userPage, dropzone } = this.state;
     this.setState({ userPage: !userPage });
     this.setState({ dropzone: !dropzone });
@@ -132,7 +134,7 @@ class App extends React.Component {
           )}
           { dropzone && (
             <div id="dropContainerMain">
-              <MyDropzone />
+              <MyDropzone onPhotoUpload={this.onPhotoUpload} />
               <input type="textarea" placeholder="Tell me about this photo" id="textarea" />
               <button type="submit" style={{ backgroundColor: 'lightblue' }} onClick={() => this.onPhotoUpload()}>UPLOAD</button>
             </div>
