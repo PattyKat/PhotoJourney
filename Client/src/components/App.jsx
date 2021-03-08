@@ -23,6 +23,8 @@ class App extends React.Component {
       userPage: false,
       menu: false,
       dropzone: false,
+      photoUpload: [],
+      photoText: '',
     };
     this.loginHandler = this.loginHandler.bind(this);
     this.registerHandler = this.registerHandler.bind(this);
@@ -30,6 +32,8 @@ class App extends React.Component {
     this.logout = this.logout.bind(this);
     this.dropzone = this.dropzone.bind(this);
     this.onPhotoUpload = this.onPhotoUpload.bind(this);
+    this.storePhoto = this.storePhoto.bind(this);
+    this.onTextChangeHandler = this.onTextChangeHandler.bind(this);
   }
 
   componentDidMount() {
@@ -91,17 +95,29 @@ class App extends React.Component {
     this.setState({ dropzone: !dropzone });
   }
 
-  onPhotoUpload(photo) {
-    console.log(photo);
-    //add handling for photo and text in here
-    const { userPage, dropzone } = this.state;
+  storePhoto(photo) {
+    this.setState({ photoUpload: photo });
+  }
+
+  onTextChangeHandler(event) {
+    this.setState({ photoText: event.target.value });
+  }
+
+  onPhotoUpload() {
+    const {
+      userPage, dropzone, photoUpload, photoText,
+    } = this.state;
+    console.log('photo', photoText);
+    console.log('photo text', photoUpload);
     this.setState({ userPage: !userPage });
     this.setState({ dropzone: !dropzone });
+    this.setState({ photoUpload: [] });
+    this.setState({ photoText: '' });
   }
 
   render() {
     const {
-      login, userPage, userData, menu, dropzone,
+      login, userPage, userData, menu, dropzone, photoText,
     } = this.state;
     return (
       <div id="uberContainer">
@@ -134,8 +150,14 @@ class App extends React.Component {
           )}
           { dropzone && (
             <div id="dropContainerMain">
-              <MyDropzone onPhotoUpload={this.onPhotoUpload} />
-              <input type="textarea" placeholder="Tell me about this photo" id="textarea" />
+              <MyDropzone storePhoto={this.storePhoto} />
+              <input
+                type="textarea"
+                placeholder="Tell me about this photo"
+                id="textarea"
+                value={photoText}
+                onChange={(event) => this.onTextChangeHandler(event)}
+              />
               <button type="submit" style={{ backgroundColor: 'lightblue' }} onClick={() => this.onPhotoUpload()}>UPLOAD</button>
             </div>
           )}
